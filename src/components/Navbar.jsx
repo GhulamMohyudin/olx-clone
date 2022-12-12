@@ -1,5 +1,8 @@
 import React from "react";
 import NavbarBtn from "./NavbarBtn";
+import { Link } from "react-router-dom";
+import { IoIosArrowDown } from "react-icons/io";
+import { BiSearch } from "react-icons/bi";
 export default function header(props) {
   return (
     <>
@@ -21,15 +24,18 @@ export default function header(props) {
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
+              <BiSearch />
+              <input className="mx-2"
+             
+                type="text"
                 placeholder={props.placeholder1}
-                aria-label="Search"
+               
               />
+              <IoIosArrowDown />
             </form>
             <form class="container-fluid">
-              <div class="input-group">
+            <div className="col-sm-9">
+                <div className="findItem d-flex  gx-0 float-start">
                 <input
                   type="text"
                   class="form-control"
@@ -37,12 +43,21 @@ export default function header(props) {
                   aria-label="Username"
                   aria-describedby="basic-addon1"
                 />
+                   <button className="searchBtn ms-auto">
+                  <BiSearch className="fs-3" />{" "}
+                </button>
+              </div>
               </div>
             </form>
-            
+            <div className="login sellBtn d-flex float-end ">
+                  <button className="login me-3">
+                    <Link to="#" className=" loginBtn">
+                      Login
+                    </Link>
+                  </button>
+                  </div>
             <NavbarBtn
-              txt="Login"
-              btnImg="https://www.olx.com.pk/assets/iconSellBorder_noinline.d9eebe038fbfae9f90fd61d971037e02.svg"
+              btnImg="sellimg.png"
             />
           </div>
         </div>

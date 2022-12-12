@@ -1,67 +1,63 @@
 import React from "react";
-import Listing from "./Listing";
-export default function CatPages(props) {
+import { Link, NavLink, Outlet } from "react-router-dom";
+import { useState } from "react";
+import { SlArrowDown } from "react-icons/sl";
+import { SlArrowUp } from "react-icons/sl";
+import ListProducts from "./Listing/ListProduct";
+export default function CatPages() {
+  const [listShow, setListShow] = useState({ display: "none" });
+  const [display, setDisplay] = useState(false);
+
+  function listShowFunc() {
+    setDisplay(true);
+    setListShow({ display: "block" });
+  }
+  function adsShowFunc() {
+    setDisplay(false);
+    setListShow({ display: "none" });
+  }
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="/#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="/#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown link
-                </a>
-                <ul
-                  class="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a class="dropdown-item" href="/#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <Listing value=" Mobile Phones" />
-              <Listing value="Cars" />
-              <Listing value="Motorcycles" />
-              <Listing value="Houses" />
-              <Listing value="TV - Video - Audio" />
-              <Listing value="Tablets" />
-              <Listing value="Land & Plots" />
-            </ul>
+       <div className="row">
+          <div className="topCategory col-12 px-4 py-3 ms-1 ">
+            <button className="select-category">
+              ALL CATEGORIES
+              {display === !true ? (
+                <SlArrowDown className="s-g-icon " onClick={listShowFunc} />
+              ) : (
+                <SlArrowUp className="s-g-icon " onClick={adsShowFunc} />
+              )}
+            </button>
+            <Link to="#" className="gategory">
+              {" "}
+              Mobile Phones{" "}
+            </Link>
+            <Link to="#" className="gategory">
+              Cars{" "}
+            </Link>
+            <Link to="#" className="gategory">
+              {" "}
+              Motorcycles{" "}
+            </Link>
+            <Link to="#" className="gategory">
+              {" "}
+              Houses{" "}
+            </Link>
+            <Link to="#" className="gategory">
+              TV - Video - Audio{" "}
+            </Link>
+            <Link to="#" className="gategory">
+              {" "}
+              Tablets{" "}
+            </Link>
+            <Link to="#" className="gategory">
+              {" "}
+              Land & Plots{" "}
+            </Link>
           </div>
         </div>
-      </nav>
+        <ListProducts listShow={listShow} />
+     
     </>
   );
 }

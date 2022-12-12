@@ -1,4 +1,6 @@
 import React from "react";
+import { AiOutlineCar } from "react-icons/ai";
+import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import "./Header.css";
 export default function header(props) {
   return (
@@ -23,12 +25,14 @@ export default function header(props) {
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/#">
-                 {props.list1}
+                  <AiOutlineCar />
+                  {props.list1}
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/#">
-                 {props.list2}
+                  <HiOutlineBuildingOffice2 />
+                  {props.list2}
                 </a>
               </li>
             </ul>
