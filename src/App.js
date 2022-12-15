@@ -6,6 +6,8 @@ import CategoryAndPage from "./components/CategoryAndPags";
 import Carousal from "./components/Carousal";
 import { Routes, Route } from "react-router-dom";
 import Footer from './components/Footer/Footer';
+import GetData from "./components/GetData";
+import Mydata from "./components/Mydata"
 function App() {
   return (
     <>
@@ -40,6 +42,16 @@ function App() {
               />
       <CategoryAndPage />
       <Carousal img="https://images.olx.com.pk/thumbnails/310378076-800x600.webp" />
+      {Mydata.map((value)=>{return(
+        <span className="container ">
+        <GetData
+          key={value.id}
+          title={value.title}
+          price={value.price}
+        />
+        </span>
+      )})}
+
       <Footer/>
     </>
     

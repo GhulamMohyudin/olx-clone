@@ -1,7 +1,7 @@
 import React from "react";
 export default function careousal(props,{adsShow}) {
   return (
-    <div className="px-4" style={adsShow}>
+    <div className="px-4 my-4" style={adsShow}>
       <div
         id="carouselExampleControls"
         class="carousel slide"
