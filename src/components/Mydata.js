@@ -39,5 +39,11 @@ const Data=[
         title:"Car",
         price:"245000Rs"
     } 
+    ,
+    {
+        id:9,
+        title:"truck",
+        price:"789000Rs"
+    } 
 ]
 export default Data;
